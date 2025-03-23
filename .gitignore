@@ -1,0 +1,13 @@
+# Dependencies
+/node_modules
+
+# Production
+/dist
+
+# IDE
+/.vscode
+!.vscode/extensions.json
+/.idea
+
+# Misc
+.DS_Store

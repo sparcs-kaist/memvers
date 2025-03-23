@@ -1,0 +1,18 @@
+@use "colors";
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --clr-bg: #{colors.$inverseGray50};
+
+        --clr-txt: #{colors.$inverseGray700};
+        --clr-txt-title: #{colors.$inverseGray800};
+
+        --clr-header-bg: #{colors.$inverseGray50};
+
+        --clr-footer-bg: #{colors.$inverseGray100};
+    }
+
+    html {
+        color-scheme: dark;
+    }
+}

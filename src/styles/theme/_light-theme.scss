@@ -1,0 +1,12 @@
+@use "colors";
+
+:root {
+    --clr-bg: #{colors.$white};
+
+    --clr-txt: #{colors.$gray700};
+    --clr-txt-title: #{colors.$gray800};
+
+    --clr-header-bg: #{colors.$white};
+
+    --clr-footer-bg: #{colors.$gray50};
+}

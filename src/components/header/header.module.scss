@@ -1,0 +1,9 @@
+$header-height: 5rem;
+
+.header {
+    position: sticky;
+
+    background-color: var(--clr-header-bg);
+
+    height: $header-height;
+}
