@@ -1,0 +1,15 @@
+@use "@styles/abstract/variables";
+@use "@styles/abstract/mixins";
+
+.responsiveWrapper {
+    margin: 0 auto;
+    max-width: variables.$desktop-max-width;
+
+    @include mixins.media-tablet {
+        @include mixins.tablet-horizontal-margin;
+    }
+
+    @include mixins.media-mobile {
+        @include mixins.mobile-horizontal-margin;
+    }
+}
