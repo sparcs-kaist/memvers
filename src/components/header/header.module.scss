@@ -1,9 +1,37 @@
+@use "@styles/abstract/mixins";
+@use "@styles/abstract/variables";
+
 $header-height: 5rem;
+$header-max-width: variables.$desktop-max-width;
+
+.headerWrapper {
+    border-bottom: 1px solid #ed3a3a;
+}
 
 .header {
-    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 0 auto;
+    max-width: $header-max-width;
+    height: $header-height;
 
     background-color: var(--clr-header-bg);
 
-    height: $header-height;
+    @include mixins.media-tablet {
+        @include mixins.tablet-horizontal-margin;
+    }
+
+    @include mixins.media-mobile {
+        @include mixins.mobile-horizontal-margin;
+    }
+}
+
+.logo {
+    display: block;
+
+    & > img {
+        display: block;
+    }
 }
