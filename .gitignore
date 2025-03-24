@@ -4,6 +4,9 @@
 # Production
 /dist
 
+# Environment Variables
+.env
+
 # IDE
 /.vscode
 !.vscode/extensions.json
