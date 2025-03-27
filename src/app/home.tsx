@@ -1,12 +1,29 @@
-import type { FC } from 'react'
+import { FC, Suspense, use } from 'react'
+import { type User, getMyself } from '@/api/user'
 
-export const Home: FC = () => (
-  <main>
-    <h1>Memvers</h1>
-    <p>Lorem ipsum dolor sit amet</p>
-    <h2>Lorem ipsum dolor sit amet</h2>
-    <p>Lorem ipsum dolor sit amet</p>
-    <h3>Lorem ipsum dolor sit amet</h3>
-    <p>Lorem ipsum dolor sit amet</p>
-  </main>
-)
+const Welcome: FC<{ userPromise: Promise<User> }> = ({ userPromise }) => {
+  const user = use(userPromise)
+
+  return (
+    <div>
+      <h1>
+        Hi, {user.firstName} {user.lastName}!
+      </h1>
+      <pre>{JSON.stringify(user, null, 2)}</pre>
+    </div>
+  )
+}
+
+export const Home: FC = () => {
+  // TODO: Use TanStack Query to cache the user data
+  //       Invalidate the cache when the user logs out
+  const mePromise = getMyself()
+
+  return (
+    <main>
+      <Suspense fallback={<h1>Loading...</h1>}>
+        <Welcome userPromise={mePromise} />
+      </Suspense>
+    </main>
+  )
+}
