@@ -7,7 +7,7 @@ export const authLoader = async () => {
     return await getMyself()
   } catch (error) {
     if (error instanceof HTTPError && error.response.status === 401)
-      return redirect('/login')
+      return redirect('/unauthorized')
     throw error
   }
 }

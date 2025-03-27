@@ -1,5 +1,6 @@
 import { FC, Suspense, use } from 'react'
 import { type User, getMyself } from '@/api/user'
+import styles from './home.module.scss'
 
 const Welcome: FC<{ userPromise: Promise<User> }> = ({ userPromise }) => {
   const user = use(userPromise)
@@ -20,7 +21,7 @@ export const Home: FC = () => {
   const mePromise = getMyself()
 
   return (
-    <main>
+    <main className={styles.main}>
       <Suspense fallback={<h1>Loading...</h1>}>
         <Welcome userPromise={mePromise} />
       </Suspense>
