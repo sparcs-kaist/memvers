@@ -1,4 +1,4 @@
-import { FC, Suspense, use } from 'react'
+import { type FC, Suspense, use } from 'react'
 import { type User, getMyself } from '@/api/user'
 import styles from './home.module.scss'
 

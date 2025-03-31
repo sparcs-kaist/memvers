@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import type { FC } from 'react'
 import { Outlet } from 'react-router'
 import { Footer } from '@/components/footer/footer'
 import { Header } from '@/components/header/header'
