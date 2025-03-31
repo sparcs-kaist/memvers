@@ -1,8 +1,8 @@
-@use "@styles/abstract/mixins";
-@use "@styles/abstract/variables";
+@use "@styles/mixins/responsive";
+@use "@styles/variables/breakpoints";
 
 $header-height: 5rem;
-$header-max-width: variables.$desktop-max-width;
+$header-max-width: breakpoints.$desktop-max-width;
 
 .headerWrapper {
     border-bottom: 1px solid #ed3a3a;
@@ -19,12 +19,12 @@ $header-max-width: variables.$desktop-max-width;
 
     background-color: var(--clr-header-bg);
 
-    @include mixins.media-tablet {
-        @include mixins.tablet-horizontal-margin;
+    @include responsive.media-tablet {
+        @include responsive.tablet-horizontal-margin;
     }
 
-    @include mixins.media-mobile {
-        @include mixins.mobile-horizontal-margin;
+    @include responsive.media-mobile {
+        @include responsive.mobile-horizontal-margin;
     }
 }
 
