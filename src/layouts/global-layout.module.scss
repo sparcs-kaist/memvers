@@ -1,0 +1,15 @@
+@use "@styles/mixins/responsive";
+@use "@styles/variables/breakpoints";
+
+.responsiveWrapper {
+    margin: 0 auto;
+    max-width: breakpoints.$desktop-max-width;
+
+    @include responsive.media-tablet {
+        @include responsive.tablet-horizontal-margin;
+    }
+
+    @include responsive.media-mobile {
+        @include responsive.mobile-horizontal-margin;
+    }
+}

@@ -1,9 +1,37 @@
+@use "@styles/mixins/responsive";
+@use "@styles/variables/breakpoints";
+
 $header-height: 5rem;
+$header-max-width: breakpoints.$desktop-max-width;
+
+.headerWrapper {
+    border-bottom: 1px solid #ed3a3a;
+}
 
 .header {
-    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 0 auto;
+    max-width: $header-max-width;
+    height: $header-height;
 
     background-color: var(--clr-header-bg);
 
-    height: $header-height;
+    @include responsive.media-tablet {
+        @include responsive.tablet-horizontal-margin;
+    }
+
+    @include responsive.media-mobile {
+        @include responsive.mobile-horizontal-margin;
+    }
+}
+
+.logo {
+    display: block;
+
+    & > img {
+        display: block;
+    }
 }

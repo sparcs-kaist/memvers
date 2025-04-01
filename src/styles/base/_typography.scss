@@ -1,4 +1,4 @@
-@use "@styles/abstract/variables";
+@use "@styles/variables/fonts";
 
 body {
     overflow-wrap: break-word;
@@ -6,7 +6,7 @@ body {
     font-size: 1.7rem;
     line-height: 2.55rem;
     word-break: keep-all;
-    font-family: variables.$fnt-pretendard;
+    font-family: fonts.$fnt-pretendard;
     color: var(--clr-txt);
 }
 
