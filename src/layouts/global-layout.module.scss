@@ -6,10 +6,10 @@
     max-width: breakpoints.$desktop-max-width;
 
     @include responsive.media-tablet {
-        @include responsive.tablet-horizontal-margin;
+        margin: 0 breakpoints.$tablet-horizontal-space;
     }
 
     @include responsive.media-mobile {
-        @include responsive.mobile-horizontal-margin;
+        margin: 0 breakpoints.$mobile-horizontal-space;
     }
 }
