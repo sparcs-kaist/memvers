@@ -1,4 +1,3 @@
-@use "sass:map";
 @use "@styles/variables/breakpoints";
 
 @mixin media-tablet {
@@ -11,12 +10,4 @@
     @media screen and (width <= #{breakpoints.$breakpoint-tablet}) {
         @content
     }
-}
-
-@mixin tablet-horizontal-margin {
-    margin: 0 calc((#{breakpoints.$breakpoint-desktop} - #{breakpoints.$desktop-max-width}) / 2);
-}
-
-@mixin mobile-horizontal-margin {
-    margin: 0 calc((#{breakpoints.$breakpoint-tablet} - #{breakpoints.$tablet-max-width}) / 2);
 }

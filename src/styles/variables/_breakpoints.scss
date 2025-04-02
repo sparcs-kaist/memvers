@@ -3,3 +3,6 @@ $breakpoint-tablet: 640px;
 
 $desktop-max-width: 936px;
 $tablet-max-width: 608px;
+
+$tablet-horizontal-space: calc((#{$breakpoint-desktop} - #{$desktop-max-width}) / 2);
+$mobile-horizontal-space: calc((#{$breakpoint-tablet} - #{$tablet-max-width}) / 2);
