@@ -4,6 +4,7 @@
 .responsiveWrapper {
     margin: 0 auto;
     max-width: breakpoints.$desktop-max-width;
+    min-height: 80svh;
 
     @include responsive.media-tablet {
         margin: 0 breakpoints.$tablet-horizontal-space;
