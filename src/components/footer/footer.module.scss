@@ -71,8 +71,36 @@ $footer-max-width: breakpoints.$desktop-max-width;
 
 .address {
     margin-top: 1.6rem;
+    margin-bottom: 3.2rem;
 
     font-size: 1.3rem;
     line-height: 2rem;
     color: var(--clr-footer-txt-caption);
+}
+
+.socialProfiles {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+
+    list-style: none;
+
+    a {
+        opacity: 0.7;
+
+        transition: opacity .2s ease;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    svg {
+        display: block;
+
+        width: 2.4rem;
+        height: 2.4rem;
+
+        fill: var(--clr-footer-social-icon);
+    }
 }
