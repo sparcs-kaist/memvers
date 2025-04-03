@@ -14,5 +14,8 @@
     --clr-footer-txt-title: #{colors.$gray800};
     --clr-footer-txt-caption: #{colors.$gray500};
     --clr-footer-txt-link: #{colors.$blue500};
-    --clr-footer-social-icon: #{colors.$gray500}
+    --clr-footer-social-icon: #{colors.$gray500};
+
+    --clr-home-search-shadow: #{colors.$grayOpacity200};
+    --clr-home-search-border: #{colors.$whiteOpacity50};
 }

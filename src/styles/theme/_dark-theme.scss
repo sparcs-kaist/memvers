@@ -15,7 +15,10 @@
         --clr-footer-txt-title: #{colors.$inverseGray800};
         --clr-footer-txt-caption: #{colors.$inverseGray500};
         --clr-footer-txt-link: #{colors.$inverseBlue500};
-        --clr-footer-social-icon: #{colors.$inverseGray500}
+        --clr-footer-social-icon: #{colors.$inverseGray500};
+
+        --clr-home-search-shadow: #{colors.$grayOpacity300};
+        --clr-home-search-border: #{colors.$whiteOpacity100};
     }
 
     html {
