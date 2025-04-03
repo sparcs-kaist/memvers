@@ -5,3 +5,7 @@ html {
 body {
     background-color: var(--clr-bg);
 }
+
+input::placeholder {
+    color: var(--clr-txt-placeholder);
+}
