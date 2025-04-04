@@ -1,13 +1,14 @@
-import { createBrowserRouter } from 'react-router'
+import type { FC } from 'react'
+import { RouterProvider as Provider, createBrowserRouter } from 'react-router'
 import { Home } from '@/app/home'
 import { Login } from '@/app/login'
 import { Oops } from '@/app/oops'
 import { Unauthorized } from '@/app/unauthorized'
-import { UserSearch } from '@/app/user-search.tsx'
+import { UserSearch } from '@/app/user-search'
 import { GlobalLayout } from '@/layouts/global-layout'
 import { authLoader } from '@/loader/authLoader'
 
-export const router = createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: '/',
     Component: GlobalLayout,
@@ -35,3 +36,5 @@ export const router = createBrowserRouter([
     ],
   },
 ])
+
+export const RouterProvider: FC = () => <Provider router={router} />
