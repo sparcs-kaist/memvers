@@ -9,10 +9,7 @@ const userSchema = z.object({
   updatedAt: z.string().datetime(),
 })
 
-type UserResponse = z.input<typeof userSchema>
-export type User = z.infer<typeof userSchema>
-
-export const getMyself = async (): Promise<User> => {
-  const user = await api.get<UserResponse>('users/me').json()
+export const getMyself = async () => {
+  const user = await api.get('users/me').json()
   return userSchema.parse(user)
 }
