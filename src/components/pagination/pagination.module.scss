@@ -1,0 +1,23 @@
+.paginationButton {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+
+    border: 1px solid var(--clr-button-border);
+    background-color: transparent;
+
+    &:hover {
+        background-color: var(--clr-button-hover-bg);
+        cursor: pointer;
+    }
+
+    &:active {
+        background-color: var(--clr-button-active-bg);
+    }
+}
+
+.paginationButtonSelected {
+    @extend .paginationButton;
+
+    background-color: var(--clr-button-selected-bg);
+}
