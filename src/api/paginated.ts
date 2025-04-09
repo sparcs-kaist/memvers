@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-type Paginated<T> = {
+export type Paginated<T> = {
   data: T[]
   pageInfo: {
     page: number

@@ -1,6 +1,8 @@
-import { type FC, useState } from 'react'
+import { type FC, useRef, useState } from 'react'
 import { Form } from 'react-router'
+import { Paginated } from '@/api/paginated'
 import { searchSparcsUsers } from '@/api/user-sparcs'
+import { Pagination } from '@/components/pagination/pagination'
 import styles from './home.module.scss'
 
 type SparcsUser = {
@@ -9,34 +11,52 @@ type SparcsUser = {
   fullName: string
 }
 
-const PAGE_SIZE = 20
+const PAGE_SIZE = 10
 const INITIAL_PAGE = 0
 
 export const Home: FC = () => {
-  const [sparcsUsers, setSparcsUsers] = useState<SparcsUser[] | undefined>()
+  const [paginatedSparcsUsers, setPaginatedSparcsUsers] = useState<
+    Paginated<SparcsUser> | undefined
+  >()
+  const formRef = useRef<HTMLFormElement | null>(null)
 
-  const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+  const handleSearchPage = async (
+    e?: React.FormEvent<HTMLFormElement>,
+    page: number = INITIAL_PAGE,
+    size: number = PAGE_SIZE,
+  ) => {
+    if (e) {
+      e.preventDefault()
+    }
 
-    const formData = new FormData(e.currentTarget)
-    const query = formData.get('q') as string
-
-    if (!query) {
-      setSparcsUsers(undefined)
+    if (!formRef.current) {
       return
     }
 
-    const users = await searchSparcsUsers({
-      q: query,
-      page: INITIAL_PAGE,
-      size: PAGE_SIZE,
+    const formData = new FormData(formRef.current)
+    const q = formData.get('q') as string
+
+    if (!q) {
+      setPaginatedSparcsUsers(undefined)
+      return
+    }
+
+    const paginatedSparcsUsers = await searchSparcsUsers({
+      q,
+      page,
+      size,
     })
-    setSparcsUsers(users.data)
+
+    setPaginatedSparcsUsers(paginatedSparcsUsers)
   }
 
   return (
     <main className={styles.main}>
-      <Form action="/user" onSubmit={handleSearch}>
+      <Form
+        action="/user"
+        onSubmit={(e) => handleSearchPage(e, INITIAL_PAGE)}
+        ref={formRef}
+      >
         <input
           type="search"
           placeholder="이름 or 닉네임"
@@ -45,23 +65,30 @@ export const Home: FC = () => {
         />
       </Form>
       <div className={styles.searchResult}>
-        {sparcsUsers?.length ? (
-          <table className={styles.searchResultTable}>
-            <thead>
-              <tr>
-                <th>이름</th>
-                <th>닉네임</th>
-              </tr>
-            </thead>
-            <tbody>
-              {sparcsUsers.map((user) => (
-                <tr key={user.id}>
-                  <td>{user.fullName}</td>
-                  <td>{user.nickname}</td>
+        {paginatedSparcsUsers?.data.length ? (
+          <>
+            <table className={styles.searchResultTable}>
+              <thead>
+                <tr>
+                  <th>이름</th>
+                  <th>닉네임</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {paginatedSparcsUsers?.data.map((user) => (
+                  <tr key={user.id}>
+                    <td>{user.fullName}</td>
+                    <td>{user.nickname}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <Pagination
+              currentPage={paginatedSparcsUsers.pageInfo.page}
+              totalPages={paginatedSparcsUsers.pageInfo.totalPages}
+              onClickPage={(page) => handleSearchPage(undefined, page)}
+            />
+          </>
         ) : (
           <span>검색 결과가 없습니다.</span>
         )}
