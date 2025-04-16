@@ -1,4 +1,4 @@
-@use "colors";
+@use 'colors';
 
 :root {
     --clr-bg: #{colors.$white};
@@ -18,4 +18,9 @@
 
     --clr-home-search-shadow: #{colors.$grayOpacity200};
     --clr-home-search-border: #{colors.$whiteOpacity50};
+
+    --clr-button-selected-bg: #{colors.$gray100};
+    --clr-button-border: #{colors.$gray300};
+    --clr-button-hover-bg: #{colors.$gray200};
+    --clr-button-active-bg: #{colors.$gray300};
 }

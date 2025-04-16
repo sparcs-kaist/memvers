@@ -1,4 +1,4 @@
-@use "colors";
+@use 'colors';
 
 @media (prefers-color-scheme: dark) {
     :root {
@@ -19,6 +19,11 @@
 
         --clr-home-search-shadow: #{colors.$grayOpacity300};
         --clr-home-search-border: #{colors.$whiteOpacity100};
+
+        --clr-button-selected-bg: #{colors.$inverseGray100};
+        --clr-button-border: #{colors.$inverseGray300};
+        --clr-button-hover-bg: #{colors.$inverseGray200};
+        --clr-button-active-bg: #{colors.$inverseGray300};
     }
 
     html {
