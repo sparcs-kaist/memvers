@@ -17,13 +17,9 @@ export const searchSparcsUsers = async ({
   page?: number
   size?: number
 }) => {
-  const searchParams = new URLSearchParams({
-    q,
-    page: page.toString(),
-    size: size.toString(),
-  }).toString()
-
-  const sparcsUsers = await api.get(`users/sparcs`, { searchParams }).json()
+  const sparcsUsers = await api
+    .get(`users/sparcs`, { searchParams: { q, page, size } })
+    .json()
 
   return paginatedSchema(sparcsUserSchema).parse(sparcsUsers)
 }
